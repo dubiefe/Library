@@ -41,3 +41,42 @@ try {
 } catch (error) {
     console.log(error)
 }
+
+try {
+    console.log(await library.addBook("Test", "blabla"));
+} catch (error) {
+    console.log(error)
+}
+
+try {
+    console.log(await library.addPassage(1, [2,6], "blabla"));
+    console.log(await librairy2.addPassage(1, [2,6], "blabla"));
+} catch (error) {
+    console.log(error)
+}
+
+try {
+    console.log(await library.deleteBook(2));
+} catch (error) {
+    console.log(error)
+}
+
+try {
+    console.log(await library.deletePassage(3, 2));
+    console.log(await librairy2.deletePassage(3, 2));
+} catch (error) {
+    console.log(error)
+}
+
+try {
+    console.log(await library.updateBook(1, "NewTitle", "NewAuthor"));
+} catch (error) {
+    console.log(error)
+}
+
+try {
+    console.log(await library.updatePassage(3, 1, [4,8,9], "NewComment"));
+    console.log(await librairy2.updatePassage(3, 1, [4,8,9], "NewComment"));
+} catch (error) {
+    console.log(error)
+}

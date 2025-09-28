@@ -92,21 +92,91 @@ export class Library {
 
     // ----- Methods
 
-    // Add a book in the library with the indicated title adn author
-    async addBook(title, author) {}
+    // Save data in the backend
+    async saveData(message) {
+        let resObj = await fetch(`${this.API_URL}/api/data`);
+        const resJSON = await resObj.json();
+
+        resJSON[this.USER] = this.USER_LIBRARY;
+
+        await fetch(`${this.API_URL}/api/save`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(resJSON)
+        });
+
+        console.log(message)
+        console.log(this.USER_LIBRARY);
+    }
+
+    // Add a book in the library with the indicated title and author
+    async addBook(title, author) {
+        const newId = Date.now().toString(36) + Math.random().toString(36).substr(2);
+        const newBook = {
+            "id": newId,
+            "title": title,
+            "author": author,
+            "passages": []
+        }
+        this.USER_LIBRARY.books.push(newBook);
+        await this.saveData("The book titled " + title + " by " + author + " has been added");
+    }
 
     // Add a passage to a book with the specified pages and comment
-    async addPassage(idBook, pages, comment) {}
+    async addPassage(idBook, pages, comment) {
+        try {
+            const newId = Date.now().toString(36) + Math.random().toString(36).substr(2);
+            const book = await this.getBook(idBook);
+            const newPassage = {
+                "id": newId,
+                "pages": pages,
+                "comment": comment
+            }
+            book.passages.push(newPassage);
+            await this.saveData("The passage for the book " + book.title + " has been added");
+        } catch (error) {
+            throw "There is no book in this library"
+        }
+    }
 
     // Delete the selected book from the library
-    async deleteBook(idBook) {}
+    async deleteBook(idBook) {
+        this.USER_LIBRARY.books = this.USER_LIBRARY.books.filter((book) => book.id !== idBook);
+        await this.saveData("The book titled " + await this.getBook(idBook).title + " has been deleted");
+    }
 
     // Delete a passage from a book
-    async deletePassage(idBook, idPassage) {}
+    async deletePassage(idBook, idPassage) {
+        try {
+            const book = await this.getBook(idBook);
+            book.passages = book.passages.filter((passage) => (passage.id !== idPassage))
+            await this.saveData("The passage has been removed from the book titled " + book.title);
+        } catch (error) {
+            throw "There is no book in this library"
+        }
+    }
 
     // Update the information of a specified book
-    async updateBook(idBook, title, author) {}
+    async updateBook(idBook, title, author) {
+        try {
+            const book = await this.getBook(idBook);
+            book.title = title;
+            book.author = author;
+            await this.saveData("The book has been updated with the title " + title + " and the author " + author);
+        } catch (error) {
+            throw "There is no book in this library"
+        }
+    }
 
     // Update the information of a passage in a book
-    async updatePassage(idBook, idPassage, pages, comment) {}
+    async updatePassage(idBook, idPassage, pages, comment) {
+        try {
+            const passage = await this.getPassage(idBook, idPassage);
+            passage.pages = pages;
+            passage.comment = comment;
+            await this.saveData("The passage has been updated in the book titled " + await this.getBook(idBook).title)
+        } catch (error) {
+            throw "There is no book in this library"
+        }
+    }
 }
