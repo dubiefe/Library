@@ -53,11 +53,23 @@ export class Library {
 
     // Get the info of a specified book
     // -> return the tile, author and passages of the book
-    async getBook(idBook) {}
+    async getBook(idBook) {
+        return this.USER_LIBRARY.books.find((book) => (book.id === idBook));
+    }
 
     // Get the number of passages in a specified book
     // -> return the length of the array of passages
-    async getNumberOfPassages(idBook) {}
+    async getNumberOfPassages(idBook) {
+        let book = await this.getBook(idBook);
+        return book.passages.length;
+    }
+
+    // Get the passages in a specified book
+    // -> return the array of passages
+    async getPassages(idBook) {
+        let book = await this.getBook(idBook);
+        return book.passages;
+    }
 
     // ----- Methods
 
