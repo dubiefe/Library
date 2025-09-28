@@ -5,8 +5,8 @@ await library.getFile();
 let librairy2 = new Library("test");
 await librairy2.getFile();
 
-console.log(library.getNumberOfBooks() + " should be 3");
-console.log(librairy2.getNumberOfBooks() + " should be 0");
+console.log(await library.getNumberOfBooks() + " should be 3");
+console.log(await librairy2.getNumberOfBooks() + " should be 0");
 
-console.log(library.getAllSortedBooksTitle());
-console.log(librairy2.getAllSortedBooksTitle());
+console.log(await library.getAllSortedBooksTitle());
+console.log(await librairy2.getAllSortedBooksTitle());
