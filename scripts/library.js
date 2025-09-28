@@ -8,7 +8,7 @@ export class Library {
     constructor(user) {
         this.USER = user;
         this.USER_LIBRARY = null;
-        this.API_URL = "https://library-backend-cfjv.onrender.com/"; // URL de ton serveur Render
+        this.API_URL = "https://library-backend-cfjv.onrender.com"; // URL de ton serveur Render
     }
 
     // Function to get the file
