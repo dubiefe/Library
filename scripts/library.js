@@ -61,14 +61,22 @@ export class Library {
     // -> return the length of the array of passages
     async getNumberOfPassages(idBook) {
         let book = await this.getBook(idBook);
-        return book.passages.length;
+        try {
+            return book.passages.length;
+        } catch (error) {
+            throw "There is no book in this library"
+        }
     }
 
     // Get the passages in a specified book
     // -> return the array of passages
     async getPassages(idBook) {
         let book = await this.getBook(idBook);
-        return book.passages;
+        try {
+            return book.passages;
+        } catch (error) {
+            throw "There is no book in this library"
+        }
     }
 
     // ----- Methods
