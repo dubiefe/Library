@@ -32,11 +32,24 @@ export class Library {
 
     // Get the number of books in the library
     // -> return the length of the array of books
-    async getNumberOfBooks() {}
+    async getNumberOfBooks() {
+        return this.USER_LIBRARY.books.length;
+    }
 
     // Get all the titles of the books in the library, ordered by title
     // -> return the titles in an array
-    async getAllSortedBooksTitle() {}
+    async getAllSortedBooksTitle() {
+        return this.USER_LIBRARY.books.sort(function (a, b) {
+        if (a.title > b.title) {
+            return 1;
+        }
+        if (a.title < b.title) {
+            return -1;
+        }
+        // a must be equal to b
+        return 0;
+        });
+    }
 
     // Get the info of a specified book
     // -> return the tile, author and passages of the book
