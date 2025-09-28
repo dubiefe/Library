@@ -1,0 +1,9 @@
+/* Personal Font */
+@font-face {
+    font-family : PixelMilie;
+    src: url(font/PixelMilie.ttf);
+}
+
+html {
+    font-family: PixelMilie;
+}
