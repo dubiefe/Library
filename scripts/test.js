@@ -32,3 +32,12 @@ try {
 } catch (error) {
     console.log(error)
 }
+
+try {
+    console.log(await library.getPassage(1, 1))
+    console.log(await library.getPassage(2, 1))
+    console.log(await library.getPassage(3, 2))
+    console.log(await librairy2.getPassage(1, 1))
+} catch (error) {
+    console.log(error)
+}

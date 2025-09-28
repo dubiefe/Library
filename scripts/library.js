@@ -79,6 +79,17 @@ export class Library {
         }
     }
 
+    // Get a passage in a specified book
+    // -> return the passage
+    async getPassage(idBook, idPassage) {
+        let book = await this.getBook(idBook);
+        try {
+            return book.passages.find((passage) => (passage.id === idPassage));
+        } catch (error) {
+            throw "There is no book in this library"
+        }
+    }
+
     // ----- Methods
 
     // Add a book in the library with the indicated title adn author
