@@ -1,6 +1,4 @@
 // ---------- Object to interact with the data
-import { readFile, writeFile } from "fs/promises";
-
 export class Library {
 
     DATA_FILE_PATH;
