@@ -6,4 +6,81 @@
 
 html {
     font-family: PixelMilie;
+    height: 100vh;
+    background-color: wheat;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    font-weight: normal;
+}
+
+/* ----- Content ----- */
+#content {
+    display: flex;
+    width: 100%;
+}
+
+#library_side, #book_side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#library, #opened_book, #closed_book {
+    height: 100%;
+    position: relative;
+}
+
+#library_side img, #opened_book img, #closed_book img {
+    width: 100%;
+    height: inherit;
+}
+
+#library_content, #opened_book_content, #closed_book_content {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ----- Library ----- */
+#library_side {
+    flex-basis: 35%;
+    height: 75vh;
+}
+
+#library_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shelf {
+    background-color: burlywood;
+    width: 85%;
+    height: 23%;
+    margin-top: 4%;
+    border: 8px solid black;
+}
+
+.shelf:first-of-type {
+    margin-top: 10%;
+}
+
+/* ----- Book ----- */
+#book_side {
+    flex-basis: 65%;
+    height: 75vh;
+}
+
+#closed_book {
+    display: none;
 }
