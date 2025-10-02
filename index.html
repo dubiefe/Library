@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style/general.css">
     <link rel="stylesheet" href="style/library.css">
     <link rel="stylesheet" href="style/book_details.css">
+    <link rel="stylesheet" href="style/popup.css">
 </head>
 <body>
     <h1>My small library</h1>
@@ -78,7 +79,37 @@
             </div>
         </div>
     </div>
+    <!-- Pop ups -->
+    <div id="popup">
+        <div id="popupLogin">
+            <h2>Welcome in your small library!</h2>
+            <p>Who are you?</p>
+            <input type="text" placeholder="username" id="inputUserName">
+            <div>
+                <button id="validateUserName">
+                    Validate
+                    <img src="style/images/validate.png" alt="validateUserName">
+                </button>
+            </div>
+        </div>
+        <div id="popupDeleteLogout">
+            <h2>Are you sure you want to delete/logout?</h2>
+            <div>
+                <button id="validateDeleteLogout">
+                    Validate
+                    <img src="style/images/validate.png" alt="validateDeleteLogout">
+                </button>
+                <button id="cancelDeleteLogout">
+                    Cancel
+                    <img src="style/images/cancel.png" alt="cancelDeleteLogout">
+                </button>
+            </div>
+        </div>
+        <div id="popupAddUpdateBook"></div>
+        <div id="popupAddUpdatePassage"></div>
+    </div>
 </body>
+<script type="module" src="scripts/main.js"></script>
 <!-- Script for the tests -->
 <!-- <script type="module" src="scripts/test.js"></script> -->
 </html>
