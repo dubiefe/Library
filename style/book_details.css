@@ -1,0 +1,150 @@
+/* ----- Book ----- */
+#book_side {
+    flex-basis: 65%;
+    height: 75vh;
+}
+
+/* --- Closed book --- */
+#closed_book_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#closed_book_content h2 {
+    margin-top: 30%;
+    padding: 10% 0% 10% 0%;
+    width: 80%;
+    font-size: 4.5vh;
+    text-align: center;
+    border: 1vh solid black;
+    background-color: burlywood;
+}
+
+#closed_book_content p {
+    margin-top: 3%;
+    width: 80%;
+    font-size: 2.2vh;
+}
+
+/* --- Opened book --- */
+#opened_book {
+    display: none;
+    position: relative;
+}
+
+#opened_book_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7%;
+}
+
+.page {
+    width: 42%;
+    height: 76%;
+    margin-bottom: 6vh;
+}
+
+.page > div {
+    width: 100%;
+    height: 20%;
+}
+
+#title, #addPassageDiv {
+    height: 7%;
+    display: flex;
+    align-items: center;
+    gap: 10%;
+}
+
+#title {
+    height: 15%;
+}
+
+#title h2, #title p {
+    width: 100%;
+    text-align: center;
+    font-size: 2vh;
+}
+
+#title p {
+    margin: 0;
+    font-size: 1.5vh;
+}
+
+#title > div:first-of-type {
+    width: 80%;
+}
+
+#optionsBook {
+    width: 20%;
+    display: flex;
+    gap: 10%;
+    height: 40%;
+}
+
+#optionsBook img {
+    height: 100%;
+    cursor: pointer;
+}
+
+#addPassageDiv img {
+    margin-left: 2%;
+    height: 100%;
+    cursor: pointer;
+}
+
+#addPassageDiv p {
+    font-size: 1.75vh;
+}
+
+.passage > div {
+    margin: 3% 0% 2% 0%;
+    display: flex;
+    width: 100%;
+    height: 25%;
+}
+
+.optionsPassage {
+    display: flex;
+    justify-content: space-between;
+    width: 12%;
+    height: 100%;
+}
+
+.optionsPassage img {
+    cursor: pointer;
+}
+
+.passage h2 {
+    font-size: 2vh;
+    width: 88%;
+    height: 100%;
+}
+
+.passage p {
+    font-size: 1.75vh;
+}
+
+#pageIndicatorBookLeft, #pageIndicatorBookRight {
+    position: absolute;
+    font-size: 2.5vh;
+    bottom: 11%;
+}
+
+#pageIndicatorBookLeft {
+    left: 22.5%;
+}
+
+#pageIndicatorBookRight {
+    right: 22.5%;
+}
+
+#changePageBook {
+    width: 5%;
+    position: absolute;
+    bottom: 11%;
+    right: 4%;
+    cursor: pointer;
+}

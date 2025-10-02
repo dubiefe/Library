@@ -5,34 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Small Library</title>
     <link rel="stylesheet" href="style/general.css">
+    <link rel="stylesheet" href="style/library.css">
+    <link rel="stylesheet" href="style/book_details.css">
 </head>
 <body>
-    <h1>My book list</h1>
+    <h1>My small library</h1>
     <div id="content">
         <div id="library_side">
-            <h2>My books</h2>
             <div id="library">
                 <img src="style/images/library.png" alt="library">
+                <!-- Shelves in the library -->
                 <div id="library_content">
                     <div class="shelf" id="shelf1">
-                        <img src="style/images/addBook.png" alt="addBook" id="addBook">
+                        <img src="style/images/addBook.png" alt="addBook" title="Add a book" id="addBook">
                     </div>
                     <div class="shelf" id="shelf2"></div>
                     <div class="shelf" id="shelf3"></div>
                 </div>
+                <p id="pageIndicatorLibrary">1 / 1</p>
+                <img src="style/images/changePage.png" alt="changePageLibrary" title="Change page" id="changePageLibrary">
             </div>
         </div>
         <div id="book_side">
-            <h2>Book details</h2>
             <div id="closed_book">
                 <img src="style/images/closed_book.png" alt="closed_book">
+                <!-- Book cover -->
                 <div id="closed_book_content">
+                    <h2>Open me!</h2>
+                    <p>Choose one of your book to (re)discover your favorite parts</p>
                 </div>
             </div>
             <div id="opened_book">
                 <img src="style/images/open_book.png" alt="opened_book">
+                <!-- Book passages -->
                 <div id="opened_book_content">
+                    <div class="page" id="left_page">
+                        <div id="title">
+                            <div>
+                                <h2 id="bookTitle">Title</h2>
+                                <p id="bookAuthor">Author</p>
+                            </div>
+                            <div id="optionsBook">
+                                <img src="style/images/pencil.png" alt="editBook" title="edit the book" id="editBook">
+                                <img src="style/images/trash.png" alt="deleteBook" title="delete the book" id="deleteBook">
+                            </div>
+                        </div>
+                        <div id="addPassageDiv">
+                            <img src="style/images/add.png" alt="addPassage" title="Add a passage" id="addPassage">
+                            <p>Add a new favorite passage in the book</p>
+                        </div>
+                        <hr>
+                        <!-- Schema for a passage
+                        <div class="passage">
+                            <div>
+                                <h2 class="passagePages">From/At p.10</h2>
+                                <div class="optionsPassage">
+                                    <img src="style/images/pencil.png" alt="editPassage" title="edit the passage" id="editPassage">
+                                    <img src="style/images/trash.png" alt="deletePassage" title="delete the passage" id="deletePassage">
+                                </div>
+                            </div>
+                            <p class="passageComment">Comment</p>
+                        </div>
+                        <hr> -->
+                    </div>
+                    <div class="page" id="right_page">
+
+                    </div>
                 </div>
+                <p id="pageIndicatorBookLeft">1 / 2</p>
+                <p id="pageIndicatorBookRight">2 / 2</p>
+                <img src="style/images/changePage.png" alt="changePageBook" title="Change page" id="changePageBook">
             </div>
         </div>
     </div>
