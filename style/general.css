@@ -77,22 +77,9 @@ h2 {
     margin-top: 10%;
 }
 
-.book {
+.shelf img {
     width: 10%;
     height: fit-content;
-}
-
-#addBook {
-    width: 10%;
-    height: 90%;
-    background-color: lightgray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#addBook img {
-    width: 90%;
 }
 
 /* ----- Book ----- */
