@@ -41,10 +41,19 @@
     font-size: 2.5vh;
 }
 
-#changePageLibrary {
+#changePageLibraryLeft, #changePageLibraryRight {
     width: 10%;
     position: absolute;
     bottom: 5%;
-    right: 6%;
     cursor: pointer;
+}
+
+#changePageLibraryLeft {
+    display: none;
+    left: 6%;
+    transform: scaleX(-1);
+}
+
+#changePageLibraryRight {
+    right: 6%;
 }

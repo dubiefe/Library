@@ -28,7 +28,7 @@
 }
 
 /* --- Opened book --- */
-#opened_book {
+#closed_book {
     display: none;
     position: relative;
 }
@@ -141,10 +141,18 @@
     right: 22.5%;
 }
 
-#changePageBook {
+#changePageBookLeft, #changePageBookRight {
     width: 5%;
     position: absolute;
     bottom: 11%;
-    right: 4%;
     cursor: pointer;
+}
+
+#changePageBookLeft {
+    left: 4%;
+    transform: scaleX(-1);
+}
+
+#changePageBookRight {
+    right: 4%;
 }
