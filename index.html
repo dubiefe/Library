@@ -107,7 +107,29 @@
                 </button>
             </div>
         </div>
-        <div id="popupAddUpdateBook"></div>
+        <div id="popupAddUpdateBook">
+            <h2>Add/Update a book</h2>
+            <div id="fromAddUpdateBook">
+                <label for="titleBookAddUpdate">Title:</label>
+                <input type="text" placeholder="title" id="titleBookAddUpdate">
+                <label for="authorBookAddUpdate">Author:</label>
+                <input type="text" placeholder="author" id="authorBookAddUpdate">
+            </div>
+            <div id="errorAddUpdateBook">
+                <p id="errorTitleAddUpdateBook"></p>
+                <p id="errorAuthorAddUpdateBook"></p>
+            </div>
+            <div>
+                <button id="cancelAddUpdateBook">
+                    Cancel
+                    <img src="style/images/cancel.png" alt="cancelAddUpdateBook">
+                </button>
+                <button id="validateAddUpdateBook">
+                    Validate
+                    <img src="style/images/validate.png" alt="validateAddUpdateBook">
+                </button>
+            </div>
+        </div>
         <div id="popupAddUpdatePassage"></div>
     </div>
 </body>

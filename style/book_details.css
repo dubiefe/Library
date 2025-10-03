@@ -28,7 +28,7 @@
 }
 
 /* --- Opened book --- */
-#closed_book {
+#opened_book {
     display: none;
     position: relative;
 }
@@ -151,6 +151,7 @@
 #changePageBookLeft {
     left: 4%;
     transform: scaleX(-1);
+    display: none;
 }
 
 #changePageBookRight {

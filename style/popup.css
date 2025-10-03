@@ -4,7 +4,7 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -32,7 +32,7 @@
 }
 
 /* -- Buttons --*/
-#validateUserName, #validateDeleteLogout, #cancelDeleteLogout {
+#validateUserName, #validateDeleteLogout, #cancelDeleteLogout, #validateAddUpdateBook, #cancelAddUpdateBook {
     width: 30%;
     height: 100%;
     display: flex;
@@ -46,19 +46,19 @@
     font-size: 1.75vh;
 }
 
-#validateUserName, #validateDeleteLogout {
+#validateUserName, #validateDeleteLogout, #validateAddUpdateBook {
     background-color: rgb(127, 211, 127);
 }
 
-#cancelDeleteLogout {
+#cancelDeleteLogout, #cancelAddUpdateBook {
     background-color: coral;
 }
 
-#validateUserName:hover, #validateDeleteLogout:hover {
+#validateUserName:hover, #validateDeleteLogout:hover, #validateAddUpdateBook:hover {
     background-color: lightgreen;
 }
 
-#cancelDeleteLogout:hover {
+#cancelDeleteLogout:hover, #cancelAddUpdateBook:hover {
     background-color: lightcoral;
 }
 
@@ -106,8 +106,47 @@
 
 /* --- Popup AddUpdateBook ---*/
 #popupAddUpdateBook {
-    display: none;
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#popupAddUpdateBook h2 {
+    height: 10%;
+    text-align: center;
+}
+
+#popupAddUpdateBook div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 80%;
+    height: 50%;
+}
+
+#popupAddUpdateBook input {
+    width: 100%;
+}
+
+#errorAddUpdateBook {
+    height: 20%;
+    width: 80%;
+}
+
+#errorAddUpdateBook p {
+    width: 100%;
+    text-align: left;
+    color: red;
+    display: none;
+}
+
+#popupAddUpdateBook div:last-of-type {
+    display: flex;
+    justify-content: center;
+    gap: 20%;
+    width: 100%;
+    height: 20%;
 }
 
 /* --- Popup AddUpdatePassage ---*/
