@@ -133,7 +133,27 @@
         <div id="popupAddUpdatePassage">
             <h2>Add/Update a passage for the book ...</h2>
             <div id="fromAddUpdatePassage">
-                <!-- TODO: Input for the pages -->
+                <label for="pagesTitle">Page(s)</label>
+                <div id="divPages">
+                    <div id="divRadioPages">
+                        <label for="single">1 page</label>
+                        <input type="radio" id="single" name="pages" value="onePage">
+                        <label for="multiple">Multiple pages</label>
+                        <input type="radio" id="multiple" name="pages" value="multiplePages">
+                    </div>
+                    <div id="choicePages">
+                        <div id="firstChoice">
+                            <p>p.</p>
+                            <input type="number" id="singlePage">
+                        </div>
+                        <div id="secondChoice">
+                            <p>p.</p>
+                            <input type="number" id="firstPage">
+                            <p> to </p>
+                            <input type="number" id="SecondPage">
+                        </div>
+                    </div>
+                </div>
                 <label for="authorBookAddUpdate">Comment:</label>
                 <input type="text" placeholder="comment" id="commentPassageAddUpdate">
             </div>
