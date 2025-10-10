@@ -95,7 +95,7 @@
             </div>
         </div>
         <div id="popupDeleteLogout">
-            <h2>Are you sure you want to delete/logout?</h2>
+            <h2 id="titleDeleteLogout">Are you sure you want to delete/logout?</h2>
             <div class="divButtons">
                 <button id="validateDeleteLogout">
                     Validate
@@ -108,7 +108,7 @@
             </div>
         </div>
         <div id="popupAddUpdateBook">
-            <h2>Add/Update a book</h2>
+            <h2 id="titleAddUpdateBook">Add/Update a book</h2>
             <div id="fromAddUpdateBook">
                 <label for="titleBookAddUpdate">Title:</label>
                 <input type="text" placeholder="title" id="titleBookAddUpdate">
@@ -131,15 +131,19 @@
             </div>
         </div>
         <div id="popupAddUpdatePassage">
-            <h2>Add/Update a passage for the book ...</h2>
+            <h2 id="titleAddUpdatePassage">Add/Update a passage for the book ...</h2>
             <div id="fromAddUpdatePassage">
                 <label for="pagesTitle">Page(s)</label>
                 <div id="divPages">
                     <div id="divRadioPages">
-                        <label for="single">1 page</label>
-                        <input type="radio" id="single" name="pages" value="onePage">
-                        <label for="multiple">Multiple pages</label>
-                        <input type="radio" id="multiple" name="pages" value="multiplePages">
+                        <div>
+                            <input type="radio" id="single" name="pages" value="onePage" checked>
+                            <label for="single">Single page</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="multiple" name="pages" value="multiplePages">
+                            <label for="multiple">Multiple pages</label>
+                        </div>
                     </div>
                     <div id="choicePages">
                         <div id="firstChoice">
@@ -150,7 +154,7 @@
                             <p>p.</p>
                             <input type="number" id="firstPage">
                             <p> to </p>
-                            <input type="number" id="SecondPage">
+                            <input type="number" id="secondPage">
                         </div>
                     </div>
                 </div>
