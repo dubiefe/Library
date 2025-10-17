@@ -8,46 +8,99 @@ export class Library_Static {
     LIBRARY = {
         "user1": {
             "books": [
-                {
-                    "id":1,
-                    "title": "Title",
-                    "author": "Author",
-                    "passages": [
-                        {
-                            "id":1,
-                            "pages": [1,2,56],
-                            "comment": "I liked it!"
-                        }
-                    ]
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
                 },
-                {
-                    "id":2,
-                    "title": "Title2",
-                    "author": "Author2",
-                    "passages": []
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
                 },
-                {
-                    "id":3,
-                    "title": "Title3",
-                    "author": "Author3",
-                    "passages": [
-                        {
-                            "id":1,
-                            "pages": [12],
-                            "comment": "I liked it!"
-                        },
-                        {
-                            "id":2,
-                            "pages": [1,2,5],
-                            "comment": "I liked it!"
-                        },
-                        {
-                            "id":3,
-                            "pages": [56,78],
-                            "comment": "I liked it!"
-                        }
-                    ]
-                }
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
+                { "id":1, "title": "Hello", "author": "Author",
+                  "passages": [{ "id":1, "pages": [1,2,56], "comment": "I liked it!"}]
+                },
             ]
         }
     }
@@ -74,10 +127,10 @@ export class Library_Static {
     // -> return the titles in an array
     async getAllSortedBooksTitle() {
         return this.USER_LIBRARY.books.sort(function (a, b) {
-        if (a.title > b.title) {
+        if (a.title.toLowerCase() > b.title.toLowerCase()) {
             return 1;
         }
-        if (a.title < b.title) {
+        if (a.title.toLowerCase() < b.title.toLowerCase()) {
             return -1;
         }
         // a must be equal to b
