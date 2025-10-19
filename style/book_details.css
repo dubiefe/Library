@@ -51,6 +51,10 @@
     height: 20%;
 }
 
+#right_page {
+    padding-top: 12vh;
+}
+
 #title, #addPassageDiv {
     height: 7%;
     display: flex;
@@ -87,6 +91,10 @@
 #optionsBook img {
     height: 100%;
     cursor: pointer;
+}
+
+#addPassageDiv {
+    margin-bottom: 3vh;
 }
 
 #addPassageDiv img {

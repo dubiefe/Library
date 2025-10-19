@@ -1,12 +1,4 @@
-import { controller_main } from './controller/controller_main.js'
-import { controller_popup } from './controller/controller_popup.js'
-import { Library_Static } from "./model/library_static.js";
+import { ControllerMain } from './controller/controller_main.js'
 
-let newLibrary = new Library_Static("user1");
-
-await newLibrary.getFile();
-console.log(await newLibrary.getAllSortedBooksTitle())
-await newLibrary.addBook("newTitle", "newAuthor");
-console.log(await newLibrary.getAllSortedBooksTitle())
-
-controller_main.library(await newLibrary.getAllSortedBooksTitle());
+const controller_main = new ControllerMain("user1");
+controller_main.initialize();
