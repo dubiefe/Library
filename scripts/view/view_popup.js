@@ -6,6 +6,8 @@ export const view_popup = {
     popupDeleteLogout: document.getElementById('popupLogin'),
     popupAddUpdateBook: document.getElementById('popupAddUpdateBook'),
     popupAddUpdatePassage: document.getElementById('popupAddUpdatePassage'),
+    // popup login
+    inputUserName: document.getElementById('inputUserName'),
     // popup book
     titleBookAddUpdate: document.getElementById('titleBookAddUpdate'),
     authorBookAddUpdate: document.getElementById('authorBookAddUpdate'),
@@ -37,16 +39,17 @@ export const view_popup = {
         this.popup.style.display = "flex";
         // display the right popup
         switch(popupName) {
-            case login:
+            case "login":
                 this.popupLogin.style.display = "flex";
+                this.
                 break;
-            case delete_logout:
+            case "delete_logout":
                 this.popupDeleteLogout.style.display = "flex";
                 break;
-            case add_update_book:
+            case "add_update_book":
                 this.popupAddUpdateBook.style.display = "flex";
                 break;
-            case add_update_passage:
+            case "add_update_passage":
                 this.popupAddUpdatePassage.style.display = "flex";
                 break;
         }
@@ -56,16 +59,16 @@ export const view_popup = {
     closePopup(popupName) {
         // hide the right popup
         switch(popupName) {
-            case login:
+            case "login":
                 this.popupLogin.style.display = "none";
                 break;
-            case delete_logout:
+            case "delete_logout":
                 this.popupDeleteLogout.style.display = "none";
                 break;
-            case add_update_book:
+            case "add_update_book":
                 this.popupAddUpdateBook.style.display = "none";
                 break;
-            case add_update_passage:
+            case "add_update_passage":
                 this.popupAddUpdatePassage.style.display = "none";
                 break;
         }

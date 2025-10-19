@@ -24,46 +24,82 @@ export const view_main = {
 
     // Function to display the books
     // books -> list of books to display
-    displayBooksInitialize(books) {
+    // movement -> change in the library (initialize, next, prev)
+    displayBooks(books, movement) {
+        // --- Empty the library
+        // be aware to not erase the element addBook in the shelf 1
+        let divAddBook = this.shelf1.firstElementChild;
+        while (divAddBook.nextSibling) {
+            this.shelf1.removeChild(divAddBook.nextSibling);
+        }
+        // clear entierly the shelf 2 and 3
+        this.shelf2.innerHTML = "";
+        this.shelf3.innerHTML = "";
         // Count the books
         const number_books = books.length;
         const number_of_pages = Math.ceil(number_books / 29);
-        // Set the value of current_page AND the displayed numbers
-        this.pageIndicatorLibrary.setAttribute("current_page", "1");
-        this.pageIndicatorLibrary.textContent = "1 / " + number_of_pages;
-        // Display the arrows
-        this.changePageLibraryLeft.display = "none";
-        if(number_of_pages === 1) {
-            this.changePageLibraryRight.display = "none";
-        } else {
-            this.changePageLibraryRight.display = "flex";
+        // --- Adapt to the movement
+        let new_current_page;
+        switch(movement) {
+            case "initialize": 
+                new_current_page = 1;
+                // Display the arrows
+                this.changePageLibraryLeft.style.display = "none";
+                if(number_of_pages === 1) {
+                    this.changePageLibraryRight.style.display = "none";
+                } else {
+                    this.changePageLibraryRight.style.display = "flex";
+                }
+                break;
+            case "next":
+                // Set the value of current_page AND the displayed numbers
+                new_current_page = Number(this.pageIndicatorLibrary.getAttribute("current_page")) + 1;
+                // Display the arrows
+                this.changePageLibraryLeft.style.display = "flex";
+                if(new_current_page == number_of_pages) {
+                    this.changePageLibraryRight.style.display = "none";
+                } else {
+                    this.changePageLibraryRight.style.display = "flex";
+                }
+                break;
+            case "prev" :
+                // Set the value of current_page AND the displayed numbers
+                new_current_page = Number(this.pageIndicatorLibrary.getAttribute("current_page")) - 1;
+                // Display the arrows
+                this.changePageLibraryRight.style.display = "flex";
+                if(new_current_page == 1) {
+                    this.changePageLibraryLeft.style.display = "none";
+                } else {
+                    this.changePageLibraryLeft.style.display = "flex";
+                }
+                break;
         }
+        // --- General changes
+        // Set the value of current_page AND the displayed numbers
+        this.pageIndicatorLibrary.setAttribute("current_page", new_current_page);
+        this.pageIndicatorLibrary.textContent =  new_current_page + " / " + number_of_pages;
         // Set the prev and next value in the arrows
-        this.changePageLibraryLeft.setAttribute("prev_page", 0);
-        this.changePageLibraryRight.setAttribute("next_page", 2);
+        this.changePageLibraryLeft.setAttribute("prev_page", new_current_page - 1);
+        this.changePageLibraryRight.setAttribute("next_page", new_current_page + 1);
+
+        // Select the right books
+        const selectedBooks = books.slice(29 * (new_current_page - 1), (29 * (new_current_page - 1)) + 29);
         // Display max 29 books according to the page number
         let counter = 2;
-        books.forEach(book => {
+        selectedBooks.forEach(book => {
             if (counter <= 10) {
-                this.shelf1.append(this.displayBook(book));
+                this.shelf1.append(this.createBook(book));
             } else if (counter <= 20) {
-                this.shelf2.append(this.displayBook(book));
-            } else if (counter <= 30) {
-                this.shelf3.append(this.displayBook(book));
+                this.shelf2.append(this.createBook(book));
+            } else {
+                this.shelf3.append(this.createBook(book));
             }
             counter++;
         });
     },
 
-    // Function to display the books
-    // books -> list of books to display
-    // movement -> value to change page (-1, 0, 1)
-    displayBookChange(books, movement) {
-
-    },
-
-    // Function to display one book
-    displayBook(book) {
+    // Function to create one book
+    createBook(book) {
         // Get a random number for the cover
         const num_book_cover = Math.floor(Math.random() * 24) + 1;
         // Create the book
@@ -71,6 +107,7 @@ export const view_main = {
         newBook.src = "../../style/images/books/book_" + num_book_cover + ".png";
         newBook.setAttribute("book_id", book.id);
         newBook.setAttribute("title", book.title);
+        newBook.setAttribute("class", "book");
         return newBook;
     },
 
