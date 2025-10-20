@@ -14,6 +14,7 @@ export class ControllerMain {
         await this.LIBRARY.getFile();
         
         this.library(await this.LIBRARY.getAllSortedBooksTitle());
+        this.changePassageInBook();
     }
     
     // function to animate the library
@@ -50,13 +51,20 @@ export class ControllerMain {
     book(passages, book) {
         // initialize the library
         view_main.displayPassages(passages, book, "initialize");
+    }
+
+    changePassageInBook() {
         // event listener on the left arrow
-        view_main.changePageBookLeft.addEventListener("click", () => {
-            view_main.displayPassages(passages, book, "prev");
+        view_main.changePageBookLeft.addEventListener("click", async () => {
+            const book_id = view_main.changePageBookLeft.getAttribute('book_id');
+            const book = await this.LIBRARY.getBook(book_id);
+            view_main.displayPassages(book.passages, book, "prev");
         });
         // event listener on the right arrow
-        view_main.changePageBookRight.addEventListener("click", () => {
-            view_main.displayPassages(passages, book, "next");
+        view_main.changePageBookRight.addEventListener("click", async () => {
+            const book_id = view_main.changePageBookRight.getAttribute('book_id');
+            const book = await this.LIBRARY.getBook(book_id);
+            view_main.displayPassages(book.passages, book, "next");
         });
     }
 

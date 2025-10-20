@@ -117,6 +117,8 @@ export const view_main = {
     // book -> book containing the passages
     // movement -> value to change page (-1, 0, 1)
     displayPassages(passages, book, movement) {
+        console.log("----------------- New --------------")
+        console.log(book.title)
         // --- Empty the book
         // be aware to not erase the element for the book and addPassage in the left page
         let divBookDetails = this.left_page.firstElementChild;
@@ -137,6 +139,7 @@ export const view_main = {
         this.deleteBook.setAttribute("book_id", book.id);
         // --- Count the passages
         let number_passages = passages.length;
+        console.log(number_passages)
         let number_of_pages = 0;
         let isLeftPage = true; // know the page
         while (number_passages >= 0) { // while there is still passages to display
@@ -149,6 +152,7 @@ export const view_main = {
             }
             number_of_pages++; // incremente the number of pages
         }
+        console.log(number_of_pages)
         // --- Adapt to the movement
         let new_current_page_left;
         switch(movement) {
@@ -185,6 +189,7 @@ export const view_main = {
                 }
                 break;
         }
+        console.log(new_current_page_left)
         // --- General changes
         // Set the value of current_page AND the displayed numbers (left AND right)
         this.pageIndicatorBookLeft.setAttribute("current_page", new_current_page_left);
@@ -197,6 +202,9 @@ export const view_main = {
         } else {
             this.pageIndicatorBookRight.style.display = "flex";
         }
+        // Set the book_id to the arrows
+        this.changePageBookLeft.setAttribute("book_id", book.id);
+        this.changePageBookRight.setAttribute("book_id", book.id);
         // Set the prev and next value in the arrows
         this.changePageBookLeft.setAttribute("prev_page", new_current_page_left - 1);
         this.changePageBookRight.setAttribute("next_page", new_current_page_left + 1);
