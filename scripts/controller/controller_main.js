@@ -40,7 +40,7 @@ export class ControllerMain {
         view_main.btnBooks.forEach(btnBook => {
             btnBook.addEventListener('click', async () => {
                 const book_id = btnBook.getAttribute('book_id');
-                const book = await this.LIBRARY.getBook(Number(book_id));
+                const book = await this.LIBRARY.getBook(book_id);
                 this.book(book.passages, book);
             });
         });
