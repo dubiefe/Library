@@ -83,10 +83,13 @@ export const view_popup = {
     // Function to display the addBook popup info
     displayAddBoook() {
         // clear fields
-        this.titleBookAddUpdate.textContent = "";
-        this.authorBookAddUpdate.textContent = "";
+        this.titleBookAddUpdate.value = "";
+        this.authorBookAddUpdate.value = "";
         // change title
         this.titleAddUpdateBook.textContent = "Add a new book in your library";
+        // hide errors
+        this.errorTitleAddUpdateBook.style.display = "none";
+        this.errorAuthorAddUpdateBook.style.display = "none";
     },
 
     // Function with the event listeners to display the right things for the add/update pages of passage
@@ -104,9 +107,11 @@ export const view_popup = {
     // Functions to display messages for errors in the add/upadte book
     displayErrorsBookTitle(error) {
         this.errorTitleAddUpdateBook.textContent = error;
+        this.errorTitleAddUpdateBook.style.display = "flex";
     },
     displayErrorsBookAuthor(error) {
         this.errorAuthorAddUpdateBook.textContent = error;
+        this.errorAuthorAddUpdateBook.style.display = "flex";
     },
 
     // Function to display messages for errors in the add/update passages

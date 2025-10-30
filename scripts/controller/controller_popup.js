@@ -29,18 +29,18 @@ export const controller_popup = {
         let errorTitle = "";
         let errorAuthor = "";
         // check the title
-        if (view_popup.titleBookAddUpdate.textContent == "") {
+        if (view_popup.titleBookAddUpdate.value == "") {
             isError = true;
             errorTitle = "The book title has to be provided";
-        } else if (view_popup.titleBookAddUpdate.textContent.length > 30) {
+        } else if (view_popup.titleBookAddUpdate.value.length > 30) {
             isError = true;
             errorTitle = "The book title needs to contain less than 30 characters";
         }
         // check the author
-        if (view_popup.authorBookAddUpdate.textContent == "") {
+        if (view_popup.authorBookAddUpdate.value == "") {
             isError = true;
             errorAuthor = "The book author has to be provided";
-        } else if (view_popup.authorBookAddUpdate.textContent.length > 30) {
+        } else if (view_popup.authorBookAddUpdate.value.length > 30) {
             isError = true;
             errorAuthor = "The book author needs to contain less than 30 characters";
         }

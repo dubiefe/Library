@@ -13,12 +13,17 @@ export class ControllerMain {
         // initialize the library
         await this.LIBRARY.getFile();
         
+        // animate the library
+        await this.animateLibrary();
+
+        // Initialize the popups
+        await this.addEventListenerPopups();
+    }
+
+    async animateLibrary() {
         // Animate the library
         this.prepareLibrary(await this.LIBRARY.getAllSortedBooksTitle());
         this.changePassageInBook();
-
-        // Initialize the popups
-        this.addEventListenerPopups();
     }
     
     // function to animate the library
@@ -74,13 +79,15 @@ export class ControllerMain {
     }
 
     // Function for all the eventlisteners of the popups (call controller_popup and then do the action (save, logout, login....))
-    addEventListenerPopups() {
+    async addEventListenerPopups() {
         // -------- General --------
         controller_popup.addEventListenerPopups();
         // -------- AddBook --------
-        view_popup.validateAddUpdateBook.addEventListener('click', () => {
+        view_popup.validateAddUpdateBook.addEventListener('click', async () => {
             if(!controller_popup.checkAddUpdateBook()) {
-                this.LIBRARY.addBook(view_popup.titleBookAddUpdate.textContent, view_popup.authorBookAddUpdate.textContent);
+                // Save the book
+                this.LIBRARY.addBook(view_popup.titleBookAddUpdate.value, view_popup.authorBookAddUpdate.value);
+                view_popup.closePopup("add_update_book");
             }
         });
     }
