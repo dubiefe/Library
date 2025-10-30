@@ -252,12 +252,14 @@ export const view_main = {
         imgDeletePassage.setAttribute("class", "deletePassage");
         imgDeletePassage.setAttribute("passage_id", passage.id);
         divOptions.append(imgDeletePassage);
+        newDiv.append(divOptions);
         // Comment
         let txtComment = document.createElement('p');
         txtComment.setAttribute("class", "passageComment");
         txtComment.textContent = passage.comment;
         // Add everything to the div
         let newPassage = document.createElement('div');
+        newPassage.setAttribute("class", "passage");
         newPassage.append(newDiv);
         newPassage.append(txtComment);
 

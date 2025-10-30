@@ -8,12 +8,16 @@ export const view_popup = {
     popupAddUpdatePassage: document.getElementById('popupAddUpdatePassage'),
     // popup login
     inputUserName: document.getElementById('inputUserName'),
+    // popup delete/logout
+    titleDeleteLogout: document.getElementById('titleDeleteLogout'),
     // popup book
+    titleAddUpdateBook: document.getElementById('titleAddUpdateBook'),
     titleBookAddUpdate: document.getElementById('titleBookAddUpdate'),
     authorBookAddUpdate: document.getElementById('authorBookAddUpdate'),
     errorTitleAddUpdateBook: document.getElementById('errorTitleAddUpdateBook'),
     errorAuthorAddUpdateBook: document.getElementById('errorAuthorAddUpdateBook'),
     // popup passages
+    titleAddUpdatePassage: document.getElementById('titleAddUpdatePassage'),
     radioSingle: document.getElementById('single'),
     radioMultiple: document.getElementById('multiple'),
     firstChoice: document.getElementById('firstChoice'),
@@ -76,6 +80,15 @@ export const view_popup = {
         this.popup.style.display = "none";
     },
 
+    // Function to display the addBook popup info
+    displayAddBoook() {
+        // clear fields
+        this.titleBookAddUpdate.textContent = "";
+        this.authorBookAddUpdate.textContent = "";
+        // change title
+        this.titleAddUpdateBook.textContent = "Add a new book in your library";
+    },
+
     // Function with the event listeners to display the right things for the add/update pages of passage
     selectPages() {
         this.radioSingle.addEventListener('click', () => {
@@ -88,26 +101,12 @@ export const view_popup = {
         })
     },
 
-    // Function to display messages for errors in the add/upadte book
-    displayErrorsBook(error) {
-        let isError = false;
-        // check the title
-        if (this.titleBookAddUpdate.value == null) {
-            isError = true;
-            this.errorTitleAddUpdateBook.textContent = "The book title has to be provided"
-        } else if (this.titleBookAddUpdate.value.length > 30) {
-            isError = true;
-            this.errorTitleAddUpdateBook.textContent = "The book title needs to contain less than 30 characters"
-        }
-        // check the author
-        if (this.authorBookAddUpdate.value == null) {
-            isError = true;
-            this.errorAuthorAddUpdateBook.textContent = "The book author has to be provided"
-        } else if (this.authorBookAddUpdate.value.length > 30) {
-            isError = true;
-            this.errorAuthorAddUpdateBook.textContent = "The book author needs to contain less than 30 characters"
-        }
-        return isError;
+    // Functions to display messages for errors in the add/upadte book
+    displayErrorsBookTitle(error) {
+        this.errorTitleAddUpdateBook.textContent = error;
+    },
+    displayErrorsBookAuthor(error) {
+        this.errorAuthorAddUpdateBook.textContent = error;
     },
 
     // Function to display messages for errors in the add/update passages

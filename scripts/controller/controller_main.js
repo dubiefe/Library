@@ -1,7 +1,7 @@
 import { view_main } from '../view/view_main.js';
+import { view_popup } from '../view/view_popup.js';
+import { controller_popup } from './controller_popup.js';
 import { Library_Static } from "../model/library_static.js";
-
-
 
 export class ControllerMain {
 
@@ -13,12 +13,16 @@ export class ControllerMain {
         // initialize the library
         await this.LIBRARY.getFile();
         
-        this.library(await this.LIBRARY.getAllSortedBooksTitle());
+        // Animate the library
+        this.prepareLibrary(await this.LIBRARY.getAllSortedBooksTitle());
         this.changePassageInBook();
+
+        // Initialize the popups
+        this.addEventListenerPopups();
     }
     
     // function to animate the library
-    library(books) {
+    prepareLibrary(books) {
         // initialize the library
         view_main.displayBooks(books, "initialize");
         this.addEventListenerBooks();
@@ -35,20 +39,8 @@ export class ControllerMain {
         });
     }
 
-    // Function to add event listener
-    addEventListenerBooks() {
-        // Add the event listener to each book in the library to open the book
-        view_main.btnBooks.forEach(btnBook => {
-            btnBook.addEventListener('click', async () => {
-                const book_id = btnBook.getAttribute('book_id');
-                const book = await this.LIBRARY.getBook(book_id);
-                this.book(book.passages, book);
-            });
-        });
-    }
-
     // Function to animate the book
-    book(passages, book) {
+    prepareBook(passages, book) {
         // initialize the library
         view_main.displayPassages(passages, book, "initialize");
     }
@@ -65,6 +57,31 @@ export class ControllerMain {
             const book_id = view_main.changePageBookRight.getAttribute('book_id');
             const book = await this.LIBRARY.getBook(book_id);
             view_main.displayPassages(book.passages, book, "next");
+        });
+    }
+
+    // ------------------ Event Listeners ------------------
+    // Function to add the event listeners for each book to display its passages
+    addEventListenerBooks() {
+        // Add the event listener to each book in the library to open the book
+        view_main.btnBooks.forEach(btnBook => {
+            btnBook.addEventListener('click', async () => {
+                const book_id = btnBook.getAttribute('book_id');
+                const book = await this.LIBRARY.getBook(book_id);
+                this.prepareBook(book.passages, book);
+            });
+        });
+    }
+
+    // Function for all the eventlisteners of the popups (call controller_popup and then do the action (save, logout, login....))
+    addEventListenerPopups() {
+        // -------- General --------
+        controller_popup.addEventListenerPopups();
+        // -------- AddBook --------
+        view_popup.validateAddUpdateBook.addEventListener('click', () => {
+            if(!controller_popup.checkAddUpdateBook()) {
+                this.LIBRARY.addBook(view_popup.titleBookAddUpdate.textContent, view_popup.authorBookAddUpdate.textContent);
+            }
         });
     }
 
