@@ -92,6 +92,18 @@ export const view_popup = {
         this.errorAuthorAddUpdateBook.style.display = "none";
     },
 
+    // Function to display the addBook popup info
+    displayAddPassage(book_title) {
+        // clear fields
+        this.singlePage.checked = true;
+        this.commentPassageAddUpdate.value = "";
+        // change title
+        this.titleAddUpdatePassage.textContent = "Add a new passage in the book " + book_title;
+        // hide errors
+        this.errorPagesAddUpdatePassage.style.display = "none";
+        this.errorCommentAddUpdatePassage.style.display = "none";
+    },
+
     // Function with the event listeners to display the right things for the add/update pages of passage
     selectPages() {
         this.radioSingle.addEventListener('click', () => {

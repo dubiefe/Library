@@ -20,6 +20,16 @@ export const controller_popup = {
         view_popup.cancelAddUpdateBook.addEventListener('click', () => {
             view_popup.closePopup("add_update_book");
         });
+        // -------- AddPassage --------
+        // Open
+        view_main.addPassage.addEventListener("click", () => {
+            view_popup.displayPopup("add_update_passage");
+            view_popup.displayAddPassage();
+        });
+        // Close
+        view_popup.cancelAddUpdatePassage.addEventListener('click', () => {
+            view_popup.closePopup("add_update_passage");
+        });
     },
 
     // Functions to check errors

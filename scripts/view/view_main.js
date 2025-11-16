@@ -134,6 +134,7 @@ export const view_main = {
         // --- Display the book selected
         this.bookTitle.textContent = book.title;
         this.bookAuthor.textContent = book.author;
+        this.addPassage.setAttribute("book_id", book.id)
         // Save the book id in the book options
         this.editBook.setAttribute("book_id", book.id);
         this.deleteBook.setAttribute("book_id", book.id);
