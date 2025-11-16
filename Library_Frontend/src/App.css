@@ -1,1 +1,4 @@
-
+#main_component {
+    display: flex;
+    width: 100%;
+}

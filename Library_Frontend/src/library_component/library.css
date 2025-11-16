@@ -1,0 +1,67 @@
+/* ----- Library ----- */
+#library_container {
+    width: 30%;
+    height: 75vh;
+}
+
+#library {
+    position: relative;
+}
+
+#library > img:first-of-type {
+    width: 100%;
+    height: inherit;
+}
+
+#library_content {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shelf {
+    background-color: burlywood;
+    width: 85%;
+    height: 23%;
+    margin-top: 2%;
+    border: 1vh solid black;
+    display: flex;
+    align-items: end;
+}
+
+.shelf:first-of-type {
+    margin-top: 10%;
+}
+
+.shelf img {
+    width: 10%;
+    height: fit-content;
+    cursor: pointer;
+}
+
+#library_container p {
+    position: absolute;
+    bottom: 5%;
+    left: 45%;
+    font-size: 2.5vh;
+}
+
+#changePageLibraryLeft, #changePageLibraryRight {
+    width: 10%;
+    position: absolute;
+    bottom: 5%;
+    cursor: pointer;
+}
+
+#changePageLibraryLeft {
+    left: 6%;
+    transform: scaleX(-1);
+}
+
+#changePageLibraryRight {
+    right: 6%;
+}
