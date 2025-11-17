@@ -1,0 +1,76 @@
+/* ----- Popup ----- */
+#popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#popupLogin, #popupDeleteLogout, #popupAddUpdateBook, #popupAddUpdatePassage {
+    background-color: wheat;
+    border-radius: 5%;
+    width: 25%;
+    height: 25%;
+    padding: 1%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#popup input {
+    width: 80%;
+    font-size: 2vh;
+    font-family: PixelMilie;
+}
+
+#popup label, #popup p {
+    font-size: 1.8vh;
+}
+
+#popup h2 {
+    font-size: 2.5vh;
+    height: 10%;
+    text-align: center;
+}
+
+#popup img {
+    height: 40%;
+}
+
+.divButtons {
+    display: flex;
+    justify-content: center;
+    gap: 20%;
+    width: 100%;
+    height: 20%;
+}
+
+/* --- Add/Update ---*/
+#fromAddUpdateBook, #fromAddUpdatePassage {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 80%;
+    height: 50%;
+}
+
+#popupAddUpdateBook input, #popupAddUpdatePassage input {
+    width: 100%;
+}
+
+#errorAddUpdateBook, #errorAddUpdatePassage {
+    height: 20%;
+    width: 80%;
+}
+
+#errorAddUpdateBook p, #errorAddUpdatePassage p {
+    width: 100%;
+    text-align: left;
+    color: red;
+    display: none;
+}

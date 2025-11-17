@@ -18,7 +18,7 @@ function Library(props) {
               <img src={library_template} alt="library"/>
               <div id="library_content">
                   <div class="shelf" id="shelf1">
-                      <img src={add_book_template} alt="addBook" title="Add a book" id="addBook"/>
+                      <img src={add_book_template} onClick={props.handleClickAddBook} alt="addBook" title="Add a book" id="addBook"/>
                       {props.libraryContent.slice((29 * (currentPage - 1)), (29 * (currentPage - 1)) + 9).map((book) => {
                         return (
                             <Single_Book key={book.id}

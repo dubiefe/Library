@@ -1,0 +1,8 @@
+#popupLogin {
+    display: flex;
+    gap: 10%;
+}
+
+#popupLogin p {
+    font-size: 2.25vh;
+}

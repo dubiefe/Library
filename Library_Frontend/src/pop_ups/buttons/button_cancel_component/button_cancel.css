@@ -1,0 +1,7 @@
+#button_cancel {
+    background-color: coral;
+}
+
+#button_cancel:hover {
+    background-color: lightcoral;
+}
