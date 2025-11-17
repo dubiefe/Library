@@ -6,11 +6,19 @@ import trash from '../../assets/images/trash.png'
 import add_passage from '../../assets/images/addPassage.png'
 import change_page from '../../assets/images/changePage.png'
 
-import { useState } from 'react'
+import Passage from '../../passage_component/passage'
+
+import { useEffect, useState } from 'react'
 
 function Opened_Book(props) {
 
-  const [ passages, setPassages ] = useState(props.book_details)
+  const [ currentPageLeft, setCurrentPageLeft ] = useState(1);
+  const [ nbPage, setNbPage ] = useState(1);
+
+  useEffect(() => {
+    setCurrentPageLeft(1)
+    setNbPage(Math.ceil(props.book_details.passages.length / 7) * 2)
+  }, [props.book_details])
 
   return (
     <>
@@ -25,24 +33,44 @@ function Opened_Book(props) {
                             <p id="bookAuthor">{props.book_details.author}</p>
                         </div>
                         <div id="optionsBook">
-                            <img src={pencil} alt="editBook" title="edit the book" id="editBook"/>
-                            <img src={trash} alt="deleteBook" title="delete the book" id="deleteBook"/>
+                            <img src={pencil} alt="editBook" title="edit the book"/>
+                            <img src={trash} alt="deleteBook" title="delete the book"/>
                         </div>
                     </div>
+                    <hr/>
                     <div id="addPassageDiv">
-                        <img src={add_passage} alt="addPassage" title="Add a passage" id="addPassage"/>
+                        <img src={add_passage} alt="addPassage" title="Add a passage"/>
                         <p>Add a new favorite passage in the book</p>
                     </div>
-                    <hr/>
+                    { props.book_details.passages.slice((7 * Math.floor(currentPageLeft / 2)), (7 * Math.floor(currentPageLeft / 2)) + 3).map((passage) => {
+                        return(
+                            <Passage key={passage.id}
+                                     passage={passage}/>
+                        )
+                    })}
                 </div>
                 <div class="page" id="right_page">
-
+                    { props.book_details.passages.slice((7 * Math.floor(currentPageLeft / 2)) + 3, (7 * Math.floor(currentPageLeft / 2)) + 7).map((passage) => {
+                        return(
+                            <Passage key={passage.id}
+                                     passage={passage}/>
+                        )
+                    })}
                 </div>
             </div>
-            <img src={change_page} alt="changePageBookLeft" title="Change page" id="changePageBookLeft" prev_page="0"/>
-            <p id="pageIndicatorBookLeft" current_page="1">1 / 2</p>
-            <p id="pageIndicatorBookRight" current_page="2">2 / 2</p>
-            <img src={change_page} alt="changePageBookRight" title="Change page" id="changePageBookRight" next_page="3"/>
+            {currentPageLeft > 1 && <img src={change_page} 
+                                         onClick={() => {setCurrentPageLeft(currentPageLeft - 2)}} 
+                                         alt="changePageBookLeft" 
+                                         title="Change page" 
+                                         id="changePageBookLeft"/>}
+            {nbPage == 0 && <p id="pageIndicatorBookLeft">{currentPageLeft} / 1</p>}
+            {nbPage != 0 && <p id="pageIndicatorBookLeft">{currentPageLeft} / {nbPage}</p>}
+            {currentPageLeft + 1 <= nbPage && <p id="pageIndicatorBookRight">{currentPageLeft + 1} / {nbPage}</p>}
+            {currentPageLeft + 1 < nbPage && <img src={change_page} 
+                                               onClick={() => {setCurrentPageLeft(currentPageLeft + 2)}} 
+                                               alt="changePageBookRight" 
+                                               title="Change page" 
+                                               id="changePageBookRight"/>}
         </div>
       </div>
     </>

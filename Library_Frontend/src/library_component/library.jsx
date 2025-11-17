@@ -11,8 +11,6 @@ function Library(props) {
   const [ currentPage, setCurrentPage ] = useState(1);
   const [ nbPage, setNbPage ] = useState(Math.ceil(props.libraryContent.length / 29));
 
-  console.log(props.libraryContent)
-
   return (
     <>
       <div id='library_container'>

@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     const initLibrary = async () => {
-      const lib = new Library_Static(username);
+      const lib = new Library_Backend(username);
       await lib.getFile();
       setLibraryInstance(lib);
       const allBooks = await lib.getAllSortedBooksTitle();
