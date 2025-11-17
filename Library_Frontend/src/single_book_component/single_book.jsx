@@ -28,12 +28,12 @@ const books = [book_1, book_2, book_3, book_4, book_5, book_6, book_7, book_8, b
 
 function Single_Book(props) {
 
-    const coverIndex = props.book_id % 24;
+    const coverIndex = props.book_title.length * 8 % 24;
     const coverPath = books[coverIndex];
 
     return(
         <>
-            <img src={coverPath} book_id={props.book_id} title={props.book_title} name="book"></img>
+            <img src={coverPath} onClick={props.onClick} book_id={props.book_id} title={props.book_title} name="book"></img>
         </>
     )
 }

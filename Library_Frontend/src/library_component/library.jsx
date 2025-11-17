@@ -11,6 +11,8 @@ function Library(props) {
   const [ currentPage, setCurrentPage ] = useState(1);
   const [ nbPage, setNbPage ] = useState(Math.ceil(props.libraryContent.length / 29));
 
+  console.log(props.libraryContent)
+
   return (
     <>
       <div id='library_container'>
@@ -23,7 +25,8 @@ function Library(props) {
                         return (
                             <Single_Book key={book.id}
                                          book_id={book.id}
-                                         book_title={book.title}/>
+                                         book_title={book.title}
+                                         onClick={() => {props.handleClickBook(book.id)}}/>
                         )
                       })}
                   </div>
@@ -32,7 +35,8 @@ function Library(props) {
                         return (
                             <Single_Book key={book.id}
                                          book_id={book.id}
-                                         book_title={book.title}/>
+                                         book_title={book.title}
+                                         onClick={() => {props.handleClickBook(book.id)}}/>
                         )
                       })}
                   </div>
@@ -41,7 +45,8 @@ function Library(props) {
                         return (
                             <Single_Book key={book.id}
                                          book_id={book.id}
-                                         book_title={book.title}/>
+                                         book_title={book.title}
+                                         onClick={() => {props.handleClickBook(book.id)}}/>
                         )
                       })}
                   </div>
@@ -51,8 +56,9 @@ function Library(props) {
                                         onClick={() => {setCurrentPage(currentPage - 1)}} 
                                         alt="changePageLibraryLeft" 
                                         title="Change page"/>}
-              <p>{currentPage} / {nbPage}</p>
-              {currentPage != nbPage && <img id="changePageLibraryRight" 
+              {nbPage == 0 && <p>{currentPage} / {nbPage + 1}</p>}
+              {nbPage != 0 && <p>{currentPage} / {nbPage}</p>}
+              {currentPage < nbPage && <img id="changePageLibraryRight" 
                                               src={change_page} 
                                               onClick={() => {setCurrentPage(currentPage + 1)}} 
                                               alt="changePageLibraryRight" 

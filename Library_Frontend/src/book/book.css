@@ -1,0 +1,25 @@
+/* ----- Book ----- */
+#book_container {
+    flex-basis: 65%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#closed_book, #opened_book {
+    height: 100%;
+    position: relative;
+}
+
+#opened_book > img:first-of-type, #closed_book > img {
+    width: 100%;
+    height: inherit;
+}
+
+#opened_book_content, #closed_book_content {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,21 @@
+#closed_book_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#closed_book_content h2 {
+    margin-top: 30%;
+    padding: 10% 0% 10% 0%;
+    width: 80%;
+    font-size: 4.5vh;
+    text-align: center;
+    border: 1vh solid black;
+    background-color: burlywood;
+}
+
+#closed_book_content p {
+    margin-top: 3%;
+    width: 80%;
+    font-size: 2.2vh;
+}

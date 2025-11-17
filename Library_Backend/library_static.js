@@ -39,6 +39,9 @@ export class Library_Static {
                 { "id":'29', "title": "Distant Thunder", "author": "Author AC", "passages": [{ "id":'130', "pages": [49,50], "comment": "Building suspense." }] },
                 { "id":'30', "title": "Stars Between Us", "author": "Author AD", "passages": [{ "id":'131', "pages": [51,52], "comment": "Romantic and vast." }] },
             ]
+        },
+        "user2": {
+            "books": []
         }
     }
 
