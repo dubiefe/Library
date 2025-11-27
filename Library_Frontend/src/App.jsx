@@ -13,7 +13,8 @@ import { Library_Backend } from '../../Library_Backend/library_backend'
 import { useEffect, useState } from 'react'
 
 function App() {
-  const [ username, setUsername ] = useState("user1")
+  const [ username, setUsername ] = useState(null)
+
   // Library instance
   const [ libraryInstance, setLibraryInstance ] = useState(null);
   const [ libraryContent, setLibraryContent ] = useState(null);
@@ -39,7 +40,7 @@ function App() {
       setLibraryContent(allBooks);
     } 
     initLibrary();
-  }, []);
+  }, [username]);
 
   // Handle select book
   const handleClickBook = (book_id) => {
@@ -66,6 +67,8 @@ function App() {
     }
   };
 
+  if (username == null) return (<Popup_Login onClick={(newUsername) => {setUsername(newUsername)}}/>)
+    
   return (
     <>
       <h2>My Small Library</h2>
@@ -75,7 +78,6 @@ function App() {
         {openedBookDetails && <Opened_Book book_details={openedBookDetails}/>}
         {!openedBookDetails && <Closed_Book/>}
       </div>
-      {displayLogin && <Popup_Login/>}
       {displayAddBook && <Popup_Add_Update_Book handleSubmit={handleAddUpdateBookFormSubmit}/>}
       {displayUpdateBook && <Popup_Add_Update_Book handleSubmit={handleAddUpdateBookFormSubmit}/>}
       {displayAddPassage && <Popup_Add_Update_Passage/>}

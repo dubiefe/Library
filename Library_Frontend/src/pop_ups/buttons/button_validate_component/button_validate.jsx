@@ -8,7 +8,7 @@ function Button_Validate(props) {
   return (
     <>
         <div id="button_container">
-            <button id="button_validate">
+            <button id="button_validate" type={props.type}>
                 {props.text}
                 <img src={validate_icon} alt="validate"/>
             </button>

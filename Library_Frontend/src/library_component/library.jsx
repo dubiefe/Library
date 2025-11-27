@@ -68,21 +68,3 @@ function Library(props) {
 }
 
 export default Library
-
-
-{/* <div id="library_side">
-            <div id="library">
-                <img src="style/images/library.png" alt="library">
-                <!-- Shelves in the library -->
-                <div id="library_content">
-                    <div class="shelf" id="shelf1">
-                        <img src="style/images/addBook.png" alt="addBook" title="Add a book" id="addBook">
-                    </div>
-                    <div class="shelf" id="shelf2"></div>
-                    <div class="shelf" id="shelf3"></div>
-                </div>
-                <img src="style/images/changePage.png" alt="changePageLibraryLeft" title="Change page" id="changePageLibraryLeft" prev_page="0">
-                <p id="pageIndicatorLibrary" current_page="1">1 / 1</p>
-                <img src="style/images/changePage.png" alt="changePageLibraryRight" title="Change page" id="changePageLibraryRight" next_page="2">
-            </div>
-        </div> */}
