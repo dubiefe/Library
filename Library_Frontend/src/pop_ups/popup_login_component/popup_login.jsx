@@ -8,7 +8,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import bcrypt from 'bcryptjs'
 
-import Button_Validate from "../buttons/button_validate_component/button_validate"
+import Button from '../../button_component/button';
 
 function Popup_Login( props ) {
 
@@ -70,7 +70,7 @@ function Popup_Login( props ) {
                     <ErrorMessage name="password" component="p" className="error" />
                     <p id='txtIndicator' onClick={() => {setNewAccount(true)}}>New here ?</p>
                     <div class="divButtons">
-                        <Button_Validate text="Login" type="submit"/>
+                        <Button text="Login" type="submit" img="validate"/>
                     </div>
                   </div>
                 </Form>
@@ -89,7 +89,7 @@ function Popup_Login( props ) {
                     <ErrorMessage name="password" component="p" className="error" />
                     <p id='txtIndicator' onClick={() => {setNewAccount(false)}}>Already an account ?</p>
                     <div class="divButtons">
-                        <Button_Validate text="Login" type="submit"/>
+                        <Button text="Login" type="submit" img="validate"/>
                     </div>
                   </div>
                 </Form>

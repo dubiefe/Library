@@ -1,0 +1,19 @@
+#button {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15%;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: PixelMilie;
+    font-size: 1.75vh;
+    box-sizing: border-box;
+    padding: 3%;
+}
+
+#button img {
+    width: 25%;
+}

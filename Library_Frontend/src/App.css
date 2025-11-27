@@ -2,3 +2,10 @@
     display: flex;
     width: 100%;
 }
+
+#btn_logout #button_container {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    width: 8%;
+}

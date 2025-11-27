@@ -6,6 +6,7 @@ import Popup_Login from './pop_ups/popup_login_component/popup_login'
 import Popup_Add_Update_Book from './pop_ups/popup_add_update_book_component/popup_add_update_book'
 import Popup_Add_Update_Passage from './pop_ups/popup_add_update_passage_component/popup_add_update_passage'
 import Popup_Delete from './pop_ups/popup_delete_component/popup_delete'
+import Button from './button_component/button'
 
 import { Library_Static } from "../../Library_Backend/library_static"
 import { Library_Backend } from '../../Library_Backend/library_backend'
@@ -72,6 +73,9 @@ function App() {
   return (
     <>
       <h2>My Small Library</h2>
+      <div id='btn_logout'>
+        <Button text={username} img="logout" onClick={() => {setDisplayLogout(true)}}/>
+      </div>
       <div id='main_component'>
         {libraryContent && <Library libraryContent={libraryContent} handleClickBook={handleClickBook} handleClickAddBook={() => {setDisplayAddBook(true)}}/>}
         {!libraryContent && <Library libraryContent={[]}/>}
