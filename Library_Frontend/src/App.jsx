@@ -68,12 +68,31 @@ function App() {
     }
   };
 
+  const handleAddUpdatePassageFormSubmit = async (values) => {
+    console.log("Form submitted!", values);
+    if(displayAddPassage) {
+      if (values.page_mode === "single") {
+        await libraryInstance.addPassage(values.book_id, [values.page_single], values.comment);
+      } else {
+        await libraryInstance.addPassage(values.book_id, [values.page_first, values.page_second], values.comment);
+      }
+      setDisplayAddPassage(false);
+    } else if (displayUpdatePassage) {
+      if (values.page_mode === "single") {
+        await libraryInstance.updatePassage(values.book_id, values.passage_id, [values.page_single], values.comment);
+      } else {
+        await libraryInstance.updatePassage(values.book_id, values.passage_id, [values.page_first, values.page_second], values.comment);
+      }
+      setDisplayUpdatePassage(null);
+    }
+  };
+
   const handleDeleteBookPassage = async (book_id, passage_id=null) => {
     if(displayDeleteBook) {
       await libraryInstance.deleteBook(book_id);
       setDisplayDeleteBook(null);
       setOpenedBookDetails(null);
-    } else {
+    } else if (displayDeletePassage) {
       await libraryInstance.deletePassage(book_id, passage_id);
       setDisplayDeletePassage(null);
     }
@@ -93,15 +112,20 @@ function App() {
         {!libraryContent && <Library libraryContent={[]}/>}
         {openedBookDetails && <Opened_Book book_details={openedBookDetails}
                                            handleClickUpdateBook={() => {setDisplayUpdateBook(openedBookDetails)}}
-                                           handleClickDeleteBook={() => {setDisplayDeleteBook(openedBookDetails)}}/>}
+                                           handleClickDeleteBook={() => {setDisplayDeleteBook(openedBookDetails)}}
+                                           handleClickAddPassage={() => {setDisplayAddPassage(openedBookDetails)}}
+                                           handleClickUpdatePassage={(details) => {setDisplayUpdatePassage(details)}}
+                                           handleClickDeletePassage={(details) => {setDisplayDeletePassage(details)}}/>}
         {!openedBookDetails && <Closed_Book/>}
       </div>
       {(displayAddBook || displayUpdateBook) && <Popup_Add_Update_Book handleSubmit={handleAddUpdateBookFormSubmit} 
                                                                      add={displayAddBook} 
                                                                      update={displayUpdateBook}
                                                                      handleCLose={() => {setDisplayAddBook(false); setDisplayUpdateBook(false);}}/>}
-      {displayAddPassage && <Popup_Add_Update_Passage/>}
-      {displayUpdatePassage && <Popup_Add_Update_Passage/>}
+      {(displayAddPassage || displayUpdatePassage) && <Popup_Add_Update_Passage handleSubmit={handleAddUpdatePassageFormSubmit}
+                                                                     add={displayAddPassage}
+                                                                     update={displayUpdatePassage}
+                                                                     handleCLose={() => {setDisplayAddPassage(null); setDisplayUpdatePassage(null)}}/>}
       {(displayDeleteBook || displayDeletePassage || displayLogout) && 
         <Popup_Delete logout={displayLogout}
                       deleteBook={displayDeleteBook}

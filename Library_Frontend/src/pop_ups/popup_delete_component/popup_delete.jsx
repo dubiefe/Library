@@ -1,8 +1,6 @@
 import './popup_delete.css'
 import '../popup.css'
 
-import Button_Validate from "../buttons/button_validate_component/button_validate"
-import Button_Cancel from "../buttons/button_cancel_component/button_cancel"
 import Button from '../../button_component/button'
 
 function Popup_Delete(props) {
@@ -18,7 +16,7 @@ function Popup_Delete(props) {
                   <Button text="Cancel" img="cancel" onClick={props.handleCLose}/>
                   {props.logout && <Button text="Logout" img="validate" onClick={props.handleLogout}/>}
                   {props.deleteBook && <Button text="Delete" img="validate" onClick={() => {props.handleDeleteBookPassage(props.deleteBook.id)}}/>}
-                  {props.deletePassage && <Button text="Delete" img="validate" onClick={() => {props.handleDeleteBookPassage(props.deleteBook.id)}}/>}
+                  {props.deletePassage && <Button text="Delete" img="validate" onClick={() => {props.handleDeleteBookPassage(props.deletePassage[0].id, props.deletePassage[1].id)}}/>}
               </div>
           </div>
       </div>

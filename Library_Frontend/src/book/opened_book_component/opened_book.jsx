@@ -39,13 +39,16 @@ function Opened_Book(props) {
                     </div>
                     <hr/>
                     <div id="addPassageDiv">
-                        <img src={add_passage} alt="addPassage" title="Add a passage"/>
+                        <img src={add_passage} alt="addPassage" title="Add a passage" onClick={props.handleClickAddPassage}/>
                         <p>Add a new favorite passage in the book</p>
                     </div>
                     { props.book_details.passages.slice((7 * Math.floor(currentPageLeft / 2)), (7 * Math.floor(currentPageLeft / 2)) + 3).map((passage) => {
                         return(
                             <Passage key={passage.id}
-                                     passage={passage}/>
+                                     passage={passage}
+                                     book={props.book_details}
+                                     handleClickUpdatePassage={props.handleClickUpdatePassage}
+                                     handleClickDeletePassage={props.handleClickDeletePassage}/>
                         )
                     })}
                 </div>
