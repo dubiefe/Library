@@ -1,11 +1,19 @@
+#root > h2 {
+    text-align: center;
+    font-size: 4vh;
+    margin: 5vh;
+}
+
 #main_component {
     display: flex;
     width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 #btn_logout #button_container {
     position: fixed;
-    top: 5px;
-    right: 5px;
+    top: 2%;
+    right: 0;
     width: 8%;
 }

@@ -6,6 +6,7 @@
 
 #library {
     position: relative;
+    height: 100%;
 }
 
 #library > img:first-of-type {
@@ -45,7 +46,7 @@
 
 #library_container p {
     position: absolute;
-    bottom: 5%;
+    bottom: 3%;
     left: 45%;
     font-size: 2.5vh;
 }

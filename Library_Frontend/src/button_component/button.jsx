@@ -15,7 +15,7 @@ function Button(props) {
                     style={
                         props.img === "cancel" ? {"background-color": "coral"} : 
                         props.img === "validate" ? {"background-color": "rgb(127, 211, 127)"} : 
-                        {"background-color": "lightgray"}}>
+                        {"background-color": "burlywood"}}>
                 {props.text}
                 {props.img === "logout" && <img src={logout_icon} alt="logout"/>}
                 {props.img === "validate" && <img src={validate_icon} alt="validate"/>}

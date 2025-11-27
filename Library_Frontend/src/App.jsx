@@ -103,7 +103,7 @@ function App() {
     
   return (
     <>
-      <h2>My Small Library</h2>
+      <h2>{username}'s Small Library</h2>
       <div id='btn_logout'>
         <Button text={username} img="logout" onClick={() => {setDisplayLogout(true)}}/>
       </div>
