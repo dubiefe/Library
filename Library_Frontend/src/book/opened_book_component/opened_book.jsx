@@ -33,8 +33,8 @@ function Opened_Book(props) {
                             <p id="bookAuthor">{props.book_details.author}</p>
                         </div>
                         <div id="optionsBook">
-                            <img src={pencil} alt="editBook" title="edit the book"/>
-                            <img src={trash} alt="deleteBook" title="delete the book"/>
+                            <img src={pencil} alt="editBook" title="edit the book" onClick={props.handleClickUpdateBook}/>
+                            <img src={trash} alt="deleteBook" title="delete the book" onClick={props.handleClickDeleteBook}/>
                         </div>
                     </div>
                     <hr/>

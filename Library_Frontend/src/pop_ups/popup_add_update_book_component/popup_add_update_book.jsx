@@ -4,14 +4,13 @@ import '../popup.css'
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-import Button_Validate from "../buttons/button_validate_component/button_validate"
-import Button_Cancel from "../buttons/button_cancel_component/button_cancel"
+import Button from '../../button_component/button';
 
 function Popup_Add_Update_Book(props) {
 
   // define initialvalues
   const initialValues = props.update
-    ? { title: props.book_title, author: props.book_author }
+    ? { title: props.update.title, author: props.update.author, id: props.update.id }
     : { title: "", author: "" };
 
   // validation schema
@@ -32,17 +31,15 @@ function Popup_Add_Update_Book(props) {
             {props.update && <h2>Update a book</h2>}
             <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={props.handleSubmit}>
                 <Form>
-                  <div id="fromAddUpdateBook">
-                    <label for="title">Title:</label>
+                  <div id="form_container">
                     <Field id="title" name="title" placeholder="Title" />
                     <ErrorMessage name="title" component="p" className="error" />
-                    <label for="author">Author:</label>
                     <Field id="author" name="author" placeholder="author" />
                     <ErrorMessage name="author" component="p" className="error" />
-                  </div>
-                  <div class="divButtons">
-                      <Button_Cancel text="Cancel"/>
-                      <Button_Validate text="Validate" type="submit"/>
+                    <div class="divButtons">
+                      <Button text="Cancel" type="button" img="cancel" onClick={props.handleCLose}/>
+                      <Button text="Validate" type="submit" img="validate"/>
+                    </div>
                   </div>
                 </Form>
             </Formik>

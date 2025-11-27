@@ -3,31 +3,6 @@
     gap: 10%;
 }
 
-#popupLogin h2 {
-    font-size: 2.2vh;
-}
-
-#popupLogin #form_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#popupLogin #form_container h3 {
-    margin: 0;
-    font-size: 2vh;
-    margin-bottom: 1vh;
-}
-
-#form_container p {
-    color: red;
-    font-size: 1.5vh;
-    margin: 0;
-    margin-top: 0.5vh;
-    text-align: left;
-    width: 80%;
-}
-
 #popupLogin #txtIndicator {
     text-decoration: underline;
     color: black;
@@ -41,6 +16,3 @@
     color: darkblue;
 }
 
-#popupLogin .divButtons div {
-    width: 35%;
-}

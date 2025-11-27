@@ -1,19 +1,21 @@
 #button {
-    width: 100%;
-    height: fit-content;
+    width: 8em;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15%;
+    gap: 1em;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     font-family: PixelMilie;
-    font-size: 1.75vh;
-    box-sizing: border-box;
-    padding: 3%;
+    font-size: 1em;
+    padding: 1em 2em 1em 2em;
+}
+
+#button:hover {
+    filter: brightness(0.9);
 }
 
 #button img {
-    width: 25%;
+    height: 1.5em;
 }

@@ -3,6 +3,7 @@ import '../popup.css'
 
 import Button_Validate from "../buttons/button_validate_component/button_validate"
 import Button_Cancel from "../buttons/button_cancel_component/button_cancel"
+import Button from '../../button_component/button'
 
 function Popup_Delete(props) {
 
@@ -10,13 +11,14 @@ function Popup_Delete(props) {
     <>
       <div id="popup">
           <div id="popupDeleteLogout">
-              {props.logout && <h2 id="titleDeleteLogout">Are you sure you want to logout?</h2>}
-              {props.deleteBook && <h2 id="titleDeleteLogout">Are you sure you want to delete the book {props.book_title}?</h2>}
-              {props.deletePassage && <h2 id="titleDeleteLogout">Are you sure you want to delete this passage?</h2>}
+              {props.logout && <h2>Are you sure you want to logout?</h2>}
+              {props.deleteBook && <h2>Are you sure you want to delete the book {props.deleteBook.title}?</h2>}
+              {props.deletePassage && <h2>Are you sure you want to delete this passage?</h2>}
               <div class="divButtons">
-                  {props.logout && <Button_Cancel text="Logout"/>}
-                  {!props.logout && <Button_Cancel text="Delete"/>}
-                  <Button_Validate text="Cancel"/>
+                  <Button text="Cancel" img="cancel" onClick={props.handleCLose}/>
+                  {props.logout && <Button text="Logout" img="validate" onClick={props.handleLogout}/>}
+                  {props.deleteBook && <Button text="Delete" img="validate" onClick={() => {props.handleDeleteBookPassage(props.deleteBook.id)}}/>}
+                  {props.deletePassage && <Button text="Delete" img="validate" onClick={() => {props.handleDeleteBookPassage(props.deleteBook.id)}}/>}
               </div>
           </div>
       </div>

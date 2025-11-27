@@ -23,12 +23,12 @@ function App() {
   const [ openedBookId, setOpenedBookId ] = useState();
   const [ openedBookDetails, setOpenedBookDetails ] = useState();
   // Popup parameters
-  const [ displayLogin, setDisplayLogin ] = useState(null);
   const [ displayAddBook, setDisplayAddBook ] = useState(false);
   const [ displayUpdateBook, setDisplayUpdateBook ] = useState(null);
   const [ displayAddPassage, setDisplayAddPassage ] = useState(null);
   const [ displayUpdatePassage, setDisplayUpdatePassage ] = useState(null);
-  const [ displayDelete, setDisplayDelete ] = useState(null);
+  const [ displayDeleteBook, setDisplayDeleteBook ] = useState(null);
+  const [ displayDeletePassage, setDisplayDeletePassage ] = useState(null);
   const [ displayLogout, setDisplayLogout ] = useState(false);
 
   // Initializing library
@@ -56,16 +56,28 @@ function App() {
     getBook();
   }, [openedBookId]);
 
-  // Handle add book
   const handleAddUpdateBookFormSubmit = async (values) => {
     console.log("Form submitted!", values);
     if(displayAddBook) {
       await libraryInstance.addBook(values.title, values.author);
       setDisplayAddBook(false);
+      setLibraryContent(await libraryInstance.getAllSortedBooksTitle())
     } else if (displayUpdateBook) {
-
-      setDisplayAddPassage(null);
+      await libraryInstance.updateBook(values.id, values.title, values.author);
+      setDisplayUpdateBook(null);
     }
+  };
+
+  const handleDeleteBookPassage = async (book_id, passage_id=null) => {
+    if(displayDeleteBook) {
+      await libraryInstance.deleteBook(book_id);
+      setDisplayDeleteBook(null);
+      setOpenedBookDetails(null);
+    } else {
+      await libraryInstance.deletePassage(book_id, passage_id);
+      setDisplayDeletePassage(null);
+    }
+    setLibraryContent(await libraryInstance.getAllSortedBooksTitle())
   };
 
   if (username == null) return (<Popup_Login onClick={(newUsername) => {setUsername(newUsername)}}/>)
@@ -79,15 +91,24 @@ function App() {
       <div id='main_component'>
         {libraryContent && <Library libraryContent={libraryContent} handleClickBook={handleClickBook} handleClickAddBook={() => {setDisplayAddBook(true)}}/>}
         {!libraryContent && <Library libraryContent={[]}/>}
-        {openedBookDetails && <Opened_Book book_details={openedBookDetails}/>}
+        {openedBookDetails && <Opened_Book book_details={openedBookDetails}
+                                           handleClickUpdateBook={() => {setDisplayUpdateBook(openedBookDetails)}}
+                                           handleClickDeleteBook={() => {setDisplayDeleteBook(openedBookDetails)}}/>}
         {!openedBookDetails && <Closed_Book/>}
       </div>
-      {displayAddBook && <Popup_Add_Update_Book handleSubmit={handleAddUpdateBookFormSubmit}/>}
-      {displayUpdateBook && <Popup_Add_Update_Book handleSubmit={handleAddUpdateBookFormSubmit}/>}
+      {(displayAddBook || displayUpdateBook) && <Popup_Add_Update_Book handleSubmit={handleAddUpdateBookFormSubmit} 
+                                                                     add={displayAddBook} 
+                                                                     update={displayUpdateBook}
+                                                                     handleCLose={() => {setDisplayAddBook(false); setDisplayUpdateBook(false);}}/>}
       {displayAddPassage && <Popup_Add_Update_Passage/>}
       {displayUpdatePassage && <Popup_Add_Update_Passage/>}
-      {displayDelete && <Popup_Delete/>}
-      {displayLogout && <Popup_Delete/>}
+      {(displayDeleteBook || displayDeletePassage || displayLogout) && 
+        <Popup_Delete logout={displayLogout}
+                      deleteBook={displayDeleteBook}
+                      deletePassage={displayDeletePassage}
+                      handleCLose={() => {setDisplayLogout(false); setDisplayDeleteBook(null); setDisplayDeletePassage(null)}}
+                      handleLogout={() => {location.reload(); setDisplayLogout(false);}}
+                      handleDeleteBookPassage={handleDeleteBookPassage}/>}
     </>
   )
 }
