@@ -38,7 +38,7 @@ function Popup_Add_Update_Book(props) {
                     <ErrorMessage name="author" component="p" className="error" />
                     <div class="divButtons">
                       <Button text="Cancel" type="button" img="cancel" onClick={props.handleCLose}/>
-                      <Button text="Validate" type="submit" img="validate"/>
+                      <Button text="Submit" type="submit" img="validate"/>
                     </div>
                   </div>
                 </Form>

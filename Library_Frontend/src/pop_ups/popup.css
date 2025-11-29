@@ -72,8 +72,7 @@
 
 .divButtons {
     display: flex;
-    justify-content: center;
-    gap: 20%;
+    justify-content: space-around;
     width: 100%;
     margin-top: 2vh;
 }

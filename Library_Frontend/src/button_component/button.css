@@ -1,5 +1,4 @@
 #button {
-    width: 8em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,7 +7,7 @@
     border-radius: 10px;
     cursor: pointer;
     font-family: PixelMilie;
-    font-size: 1em;
+    font-size: 2vh;
     padding: 1em 2em 1em 2em;
 }
 

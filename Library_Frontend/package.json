@@ -13,6 +13,7 @@
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "formik": "^2.4.9",
+    "object-hash": "^3.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "yup": "^1.7.1"

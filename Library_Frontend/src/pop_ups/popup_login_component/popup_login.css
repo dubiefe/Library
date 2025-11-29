@@ -5,11 +5,11 @@
 
 #popupLogin #txtIndicator {
     text-decoration: underline;
+    font-size: 2vh;
     color: black;
     cursor: pointer;
     width: fit-content;
     margin-top: 2vh;
-    margin-bottom: 2vh;
 }
 
 #popupLogin #txtIndicator:hover {

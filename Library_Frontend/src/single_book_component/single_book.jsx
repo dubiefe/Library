@@ -1,3 +1,5 @@
+import hash from "object-hash";
+
 import book_1 from "../assets/images/books/book_1.png"
 import book_2 from "../assets/images/books/book_2.png"
 import book_3 from "../assets/images/books/book_3.png"
@@ -28,7 +30,7 @@ const books = [book_1, book_2, book_3, book_4, book_5, book_6, book_7, book_8, b
 
 function Single_Book(props) {
 
-    const coverIndex = props.book_title.length * 8 % 24;
+    const coverIndex = parseInt(hash(props.book_title).slice(0, 8), 16) % 24;
     const coverPath = books[coverIndex];
 
     return(

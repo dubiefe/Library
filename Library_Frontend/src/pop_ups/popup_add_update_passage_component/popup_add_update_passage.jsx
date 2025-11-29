@@ -23,19 +23,19 @@ function Popup_Add_Update_Passage(props) {
         page_single: Yup.number()
             .when("page_mode", {
                 is: "single",
-                then: (schema) => schema.required("Page number is required").min(1),
+                then: (schema) => schema.required("Page number is required").min(1, "You can't have a page number below 1"),
                 otherwise: (schema) => schema.notRequired()
             }),
         page_first: Yup.number()
             .when("page_mode", {
                 is: "multiple",
-                then: (schema) => schema.required("First page number is required").min(1),
+                then: (schema) => schema.required("First page number is required").min(1, "You can't have a page number below 1"),
                 otherwise: (schema) => schema.notRequired()
             }),
         page_second: Yup.number()
             .when("page_mode", {
                 is: "multiple",
-                then: (schema) => schema.required("Second page number is required").min(1),
+                then: (schema) => schema.required("Second page number is required").min(1, "You can't have a page number below 1"),
                 otherwise: (schema) => schema.notRequired()
             }),
         comment: Yup.string()
@@ -49,6 +49,7 @@ function Popup_Add_Update_Passage(props) {
         <div id="popupAddUpdatePassage">
             {props.add && <h2>Add a passage for the book {props.add.title}</h2>}
             {props.update && <h2>Update a passage for the book {props.update.title}</h2>}
+            <p id='title_page'>Page(s)</p>
             <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={props.handleSubmit}>
                 {({ values }) => (
                     <Form>
@@ -92,7 +93,7 @@ function Popup_Add_Update_Passage(props) {
                             <ErrorMessage name="comment" component="p" className="error" />
                             <div class="divButtons">
                             <Button text="Cancel" type="button" img="cancel" onClick={props.handleCLose}/>
-                            <Button text="Validate" type="submit" img="validate"/>
+                            <Button text="Submit" type="submit" img="validate"/>
                             </div>
                         </div>
                     </Form>
