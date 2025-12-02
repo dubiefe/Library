@@ -12,6 +12,7 @@ import { Library_Static } from "../../Library_Backend/library_static"
 import { Library_Backend } from '../../Library_Backend/library_backend'
 
 import { useEffect, useState } from 'react'
+import { useMediaQuery } from 'react-responsive'
 
 function App() {
   const [ username, setUsername ] = useState(null)
@@ -30,6 +31,9 @@ function App() {
   const [ displayDeleteBook, setDisplayDeleteBook ] = useState(null);
   const [ displayDeletePassage, setDisplayDeletePassage ] = useState(null);
   const [ displayLogout, setDisplayLogout ] = useState(false);
+
+  // Screnn
+  const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1224px)'})
 
   // Initializing library
   useEffect(() => {
@@ -105,18 +109,20 @@ function App() {
     <>
       <h2>{username}'s Small Library</h2>
       <div id='btn_logout'>
-        <Button text={username} img="logout" onClick={() => {setDisplayLogout(true)}}/>
+        <Button img="logout" onClick={() => {setDisplayLogout(true)}}/>
       </div>
       <div id='main_component'>
         {libraryContent && <Library libraryContent={libraryContent} handleClickBook={handleClickBook} handleClickAddBook={() => {setDisplayAddBook(true)}}/>}
         {!libraryContent && <Library libraryContent={[]}/>}
         {openedBookDetails && <Opened_Book book_details={openedBookDetails}
+                                           isDesktopOrLaptop={isDesktopOrLaptop}
+                                           setOpenedBookDetails={setOpenedBookDetails}
                                            handleClickUpdateBook={() => {setDisplayUpdateBook(openedBookDetails)}}
                                            handleClickDeleteBook={() => {setDisplayDeleteBook(openedBookDetails)}}
                                            handleClickAddPassage={() => {setDisplayAddPassage(openedBookDetails)}}
                                            handleClickUpdatePassage={(details) => {setDisplayUpdatePassage(details)}}
                                            handleClickDeletePassage={(details) => {setDisplayDeletePassage(details)}}/>}
-        {!openedBookDetails && <Closed_Book/>}
+        {isDesktopOrLaptop && !openedBookDetails && <Closed_Book/>}
       </div>
       {(displayAddBook || displayUpdateBook) && <Popup_Add_Update_Book handleSubmit={handleAddUpdateBookFormSubmit} 
                                                                      add={displayAddBook} 

@@ -106,3 +106,34 @@
 #changePageBookRight {
     right: 4%;
 }
+
+@media only screen and (max-width: 600px) {
+    #opened_book_content #back_button {
+        position: fixed;
+        top: 5%;
+        left: 2%;
+        width: 15%;
+    }
+
+    .page {
+        width: 70%;
+    }
+
+    #pageIndicatorBookLeft {
+        left: 45%;
+        bottom: 4%;
+    }
+
+    #changePageBookLeft, #changePageBookRight {
+        width: 15%;
+        bottom: 5%;
+    }
+
+    #changePageBookLeft {
+        left: 10%;
+    }
+
+    #changePageBookRight {
+        right: 10%;
+    }
+}

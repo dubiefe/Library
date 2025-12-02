@@ -13,7 +13,17 @@
 
 #btn_logout #button_container {
     position: fixed;
-    top: 2%;
+    top: 1%;
     right: 2%;
-    width: 8%;
+    width: fit-content;
+}
+
+@media only screen and (max-width: 600px) {
+    #root > h2 {
+        margin-top: 2em;
+    }
+
+    #main_component {
+        flex-direction: column;
+    }
 }

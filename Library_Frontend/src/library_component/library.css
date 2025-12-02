@@ -66,3 +66,20 @@
 #changePageLibraryRight {
     right: 6%;
 }
+
+@media only screen and (max-width: 600px) {
+    #library_container {
+        width: 95%;
+        height: 100%;
+    }
+
+    .shelf {
+        border: 0.7vh solid black;
+        margin-top: 4%;
+    }
+
+    #library_container p {
+        bottom: 2%;
+        font-size: 2vh;
+    }
+}
