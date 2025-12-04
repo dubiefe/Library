@@ -45,6 +45,7 @@ For the passages, you can also use the icons next to each passage in the open bo
 ## Structure of the project
 
 ### Simplified Tree
+```
 Library
 ├── README.md
 ├── Library_Backend
@@ -76,9 +77,7 @@ Library
         │   ├── popup_delete_component
         │   └── popup_login_component
         └── single_book_component
-
-
-
+```
 
 ### Backend
 The backend is hosted on CloudFare.
