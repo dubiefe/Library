@@ -10,6 +10,8 @@ You will need to create an account to use the application.
 ## Functionnalities
 
 ![Main View](./images_README/main_view.png)
-<p style="text-align:justify; font-style:italic;"> My Small Library Main View </p>
+*My Small Library Main View*
 
 ### Add books
+
+![Add Book](./images_README/add_book.png)
