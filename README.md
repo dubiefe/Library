@@ -82,11 +82,7 @@ Library
 ### Backend
 The backend is hosted on CloudFare.
 
-The database consists of a table with two lines: 
-
-    - one for a json with all the user's info;
-
-    - one for all the libraries.
+The database consists of a table with two lines: one for a json with all the user's info, and one for all the libraries.
 
 The database is accessible thanks to a worker.
 
