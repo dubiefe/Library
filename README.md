@@ -48,34 +48,35 @@ For the passages, you can also use the icons next to each passage in the open bo
 Library
 ├── README.md
 ├── Library_Backend
-│ ├── library_backend.js
-│ └── login_backend.js
+│   ├── library_backend.js
+│   └── login_backend.js
 └── Library_Frontend
-  ├── index.html
-  ├── public
-  │ └── library.png
-  └── src
-  ├── App.css
-  ├── App.jsx
-  ├── index.css
-  ├── main.jsx
-  ├── assets
-  │ ├── font
-  │ └── images
-  ├── book
-  │ ├── book.css
-  │ ├── closed_book_component
-  │ └── opened_book_component
-  ├── button_component
-  ├── library_component
-  ├── passage_component
-  ├── pop_ups
-  │ ├── popup.css
-  │ ├── popup_add_update_book_component
-  │ ├── popup_add_update_passage_component
-  │ ├── popup_delete_component
-  │ └── popup_login_component
-  └── single_book_component
+    ├── index.html
+    ├── public
+    │   └── library.png
+    └── src
+        ├── App.css
+        ├── App.jsx
+        ├── index.css
+        ├── main.jsx
+        ├── assets
+        │   ├── font
+        │   └── images
+        ├── book
+        │   ├── book.css
+        │   ├── closed_book_component
+        │   └── opened_book_component
+        ├── button_component
+        ├── library_component
+        ├── passage_component
+        ├── pop_ups
+        │   ├── popup.css
+        │   ├── popup_add_update_book_component
+        │   ├── popup_add_update_passage_component
+        │   ├── popup_delete_component
+        │   └── popup_login_component
+        └── single_book_component
+
 
 
 
@@ -87,7 +88,7 @@ The database consists of a table with two lines:
     - one for a json with all the user's info;
 
     - one for all the libraries.
-    
+
 The database is accessible thanks to a worker.
 
 Then, to access it easily in the app, two class files are exporting classes to interact with clouddare, with all the necessary functions.
